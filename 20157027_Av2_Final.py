@@ -1,7 +1,11 @@
 # David Renan
 # Pedro Corrêa
 
-# OBS instalar openpyxl, webdriver-manager e selenium
+# OBS instalar openpyxl, webdriver_manager e selenium
+# Executar no terminal:
+#    pip install openpyxl
+#    pip install selenium
+#    pip install webdriver_manager
 
 # Importação de módulos
 import openpyxl as opx
@@ -11,8 +15,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from datetime import date
-import csv
-
 
 # Seleciona o driver mais atualizado do webdriver e instala para previnir erros de atualização e versão do navegador.
 servico = Service(ChromeDriverManager().install())
@@ -20,7 +22,6 @@ navegador = webdriver.Chrome(service=servico)
 
 # Acessando site
 navegador.get('https://www.google.com/')
-
 
 #Acessando a busca
 navegador.find_element(By.NAME, 'q').send_keys('tempo agora Itatiaia-RJ')
@@ -34,8 +35,6 @@ navegador.find_element(By.NAME, 'btnK').click()
 # Encontrar temperatura
 texto = navegador.find_element(By.ID, 'wob_tm').text
 data = date.today()
-
-
 
 # ------------------------------------------------------------------------------------------------
 
